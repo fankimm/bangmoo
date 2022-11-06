@@ -6,7 +6,7 @@
 
 body {
   color: aliceblue;
-
+  margin: 0;
   background-position: top;
   background-image: url("https://media.cntraveler.com/photos/611fcba37d5f8669f278de94/16:9/w_1600,c_limit/Blue%20Note%20Jazz%20Club-%20Credit%20Nagamitsu%20Endo_DSCF3801.jpeg");
   background-size: cover;
