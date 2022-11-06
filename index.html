@@ -9,6 +9,8 @@
       content="upgrade-insecure-requests"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <title>나만의 동기부여 홈화면 만들기</title>
   </head>
 
@@ -26,50 +28,5 @@
         " 명언의 내용 "
       </div>
     </div>
-    <script>
-      $(document).ready(function () {
-        renderCurrentTime();
-        renderQuote();
-      });
-
-      function renderCurrentTime() {
-        let url = `https://worldtimeapi.org/api/timezone/Asia/Seoul`;
-        fetch(url)
-          .then((res) => {
-            return res.json();
-          })
-          .then((data) => {
-            let datetime = data["datetime"].substr(11, 8);
-            $("#time").text(datetime);
-          });
-      }
-
-      function renderQuote() {
-        let url = `https://api.quotable.io/random`;
-        fetch(url)
-          .then((res) => {
-            const result = res.json();
-            return result;
-          })
-          .then((data) => {
-            let content = `" ${data["content"]} "`;
-            let author = `- ${data["author"]} -`;
-            $("#content").text(content);
-            $("#author").text(author);
-            // const rand = Math.floor(Math.random() * 10);
-            // $("#author")[0].style = `font-size:${
-            //   rand + 5
-            // }px;transition:font-size 1s`;
-          });
-      }
-
-      setInterval(() => {
-        renderQuote();
-      }, 3000);
-
-      setInterval(() => {
-        renderCurrentTime();
-      }, 1000);
-    </script>
   </body>
 </html>
